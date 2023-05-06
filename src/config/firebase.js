@@ -1,13 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
+const apiKey = process.env.REACT_APP_FIREBASE_API_KEY;
+const authDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
+const projectId = process.env.REACT_APP_FIREBASE_PROJECT_ID;
+const storageBucket = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
+const messagingSenderId = process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID;
+const appId = process.env.REACT_APP_FIREBASE_APP_ID;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyC02XKqODsY6NYMeTDyZXisWP4bS_Gml_I",
-  authDomain: "flashcards-f23a5.firebaseapp.com",
-  projectId: "flashcards-f23a5",
-  storageBucket: "flashcards-f23a5.appspot.com",
-  messagingSenderId: "203672116017",
-  appId: "1:203672116017:web:51e64203c30a9ce6726e10"
+  apiKey: apiKey,
+  authDomain: authDomain,
+  projectId: projectId,
+  storageBucket: storageBucket,
+  messagingSenderId: messagingSenderId,
+  appId: appId
 };
 
 // Initialize Firebase
