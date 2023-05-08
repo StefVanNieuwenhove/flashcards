@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
-import { Button, Card, CardActions, CardContent, CardHeader, Typography, Box } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardHeader, Typography, Box, Container } from '@mui/material';
 
 const FlashCard = ({ title, description }) => {
   const [hidden, setHidden] = useState(false);
   return (
-    <Card variant='outlined' sx={{ m: 3, borderColor: 'lightgray'}}>
+  
+    <Card variant='outlined' sx={{ borderColor: 'lightgray'}}>
       <CardHeader title={title} />
       <Box sx={{
-        height: '150px'
+        display: 'flex',
+        height: '100px',
+        overflow: 'auto',
+        width: '100%'
       }}>
       {hidden && (
-        <CardContent>
+        <CardContent sx={{ }}>
           <Typography  gutterBottom variant="h6" component="div">
             {description}
           </Typography>
@@ -19,9 +23,10 @@ const FlashCard = ({ title, description }) => {
       </Box>
         
       <CardActions>
-        {hidden ? (<Button size='small' onClick={() => setHidden(false)}>Hide description</Button>) : (<Button size='small' onClick={() => setHidden(true)}>Show description</Button>)}
+        {hidden ? (<Button size='small' variant='contained' color='warning' onClick={() => setHidden(false)}>Hide description</Button>) : (<Button size='small' variant='contained' color='success' onClick={() => setHidden(true)}>Show description</Button>)}
       </CardActions>
     </Card>
+
   )
 }
 

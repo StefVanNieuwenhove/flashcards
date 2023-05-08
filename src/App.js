@@ -25,15 +25,14 @@ function App() {
             textColor="inherit"
             indicatorColor="inherit"
           >
-            <Tab label="Overzicht aanwezigheden" value={'0'} />
-            <Tab label="Vergadering toevoegen" value={'1'} />
+            <Tab label="Overview flashcards" value={'0'} />
+            <Tab label="Create new flashcard" value={'1'} />
           </TabList>
         </AppBar>
         </Toolbar>
       </Box>
       <TabPanel value={'0'}>
         <FlashCards />
-        {/* {data.map((item) => (<FlashCard key={item.id} {...item} />))} */}
       </TabPanel>
       <TabPanel value={'1'}>
         <AddFlasCard />

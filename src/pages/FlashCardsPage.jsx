@@ -2,12 +2,13 @@ import React from 'react'
 import { FlashCard } from "../components";
 import { useQuery } from "react-query";
 import { getFlashcards } from "../api/flashcards";
-import { Box } from '@mui/material';
+import { Box, List, ListItem, Stack } from '@mui/material';
 
 const FlasCardsPage = () => {
   const {data, isLoading, isError, error} = useQuery({
     queryKey: ['flashcards'],
-    queryFn: getFlashcards
+    queryFn: getFlashcards,
+    cacheTime: 24 * 60 * 60,
   })
 
   if (isLoading) {
@@ -18,10 +19,14 @@ const FlasCardsPage = () => {
     return <div>{error.message}</div>
   }
   return (
-    <Box sx={{ flex: 1, flexGrow: 1}}>
+    <Box sx={{ height: '100%'}}>
+      <Stack  spacing={{ sx: 1, sm: 2}} direction="row" useFlexGap flexWrap="wrap">
         {data.map((item) => (
-        <FlashCard key={item.id} {...item}/>
-      ))}    
+          <Box key={item.id} sx={{ flexGrow: 1, width: '40%'}}>
+            <FlashCard {...item} />
+          </Box>
+        ))}
+      </Stack>
     </Box>
   )
 }
