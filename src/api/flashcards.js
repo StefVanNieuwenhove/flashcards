@@ -12,6 +12,7 @@ export const getFlashcards = async () => {
             id: doc.id,
             
         }));
+        randomData(data);
         return data;
     } catch (error) {
         console.log(error);
@@ -29,4 +30,14 @@ export const AddFlashcard = async ({ title, description }) => {
         console.log(error);
     }
     
+}
+
+const randomData = (data) => {
+    for (let i = 0; i < data.length; i++) {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const temp = data[i];
+        data[i] = data[randomIndex];
+        data[randomIndex] = temp;
+      }
+      console.log(data);
 }

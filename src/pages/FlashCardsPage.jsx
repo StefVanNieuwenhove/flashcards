@@ -29,6 +29,7 @@ const FlasCardsPage = () => {
   if (isError) {
     return <div>{error.message}</div>
   }
+
   return (
     <Box sx={{ height: '100%'}}>
       <Stack  spacing={{ sx: 1, sm: 2}} direction="row" useFlexGap flexWrap="wrap">
