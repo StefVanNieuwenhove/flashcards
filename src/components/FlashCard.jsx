@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Card, CardActions, CardContent, CardHeader, Typography, Box, Container } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardHeader, Typography, Box } from '@mui/material';
 
 const FlashCard = ({ title, description }) => {
   const [hidden, setHidden] = useState(false);

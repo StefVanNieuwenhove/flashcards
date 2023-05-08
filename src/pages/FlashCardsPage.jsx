@@ -2,7 +2,7 @@ import React from 'react'
 import { FlashCard } from "../components";
 import { useQuery } from "react-query";
 import { getFlashcards } from "../api/flashcards";
-import { Box, List, ListItem, Stack } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 
 const FlasCardsPage = () => {
   const {data, isLoading, isError, error} = useQuery({
