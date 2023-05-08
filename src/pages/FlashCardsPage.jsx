@@ -3,16 +3,27 @@ import { FlashCard } from "../components";
 import { useQuery } from "react-query";
 import { getFlashcards } from "../api/flashcards";
 import { Box, Stack } from '@mui/material';
+import { ThreeDots } from 'react-loader-spinner'
 
 const FlasCardsPage = () => {
-  const {data, isLoading, isError, error} = useQuery({
+  const {data, isLoading, isError, error
+  } = useQuery({
     queryKey: ['flashcards'],
     queryFn: getFlashcards,
     cacheTime: 24 * 60 * 60,
   })
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <ThreeDots 
+        height="100" 
+        width="80" 
+        radius="9"
+        color="#4fa94d" 
+        ariaLabel="three-dots-loading"
+        visible={true}
+        />
+    </Box>
   }
 
   if (isError) {
